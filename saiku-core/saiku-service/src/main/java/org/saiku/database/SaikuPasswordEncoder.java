@@ -31,7 +31,7 @@ public class SaikuPasswordEncoder implements PasswordEncoder {
         return encoder.matches(charSequence, s);
     }
 
-    private Boolean isHash(CharSequence charSequence) {
+    private boolean isHash(CharSequence charSequence) {
         return pattern.matcher(charSequence).matches();
     }
 }
