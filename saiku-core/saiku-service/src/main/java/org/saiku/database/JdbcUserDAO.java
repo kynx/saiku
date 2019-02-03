@@ -4,6 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import org.saiku.UserDAO;
 import org.saiku.database.dto.SaikuUser;
+import org.saiku.security.NoReHashPasswordEncoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -29,7 +30,7 @@ public class JdbcUserDAO
 
     private final Properties prop = new Properties();
     private final ClassLoader loader = Thread.currentThread().getContextClassLoader();
-    private PasswordEncoder passwordEncoder = new SaikuPasswordEncoder();
+    private PasswordEncoder passwordEncoder = new NoReHashPasswordEncoder();
 
     @Autowired
     private ServletContext servletContext;

@@ -1,18 +1,20 @@
-package org.saiku.database;
+package org.saiku.security;
 
 import org.junit.Test;
+import org.saiku.security.NoReHashPasswordEncoder;
 
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 
-public class SaikuPasswordEncoderTest {
-    SaikuPasswordEncoder encoder = new SaikuPasswordEncoder();
+public class NoReHashPasswordEncoderTest {
+    NoReHashPasswordEncoder encoder = new NoReHashPasswordEncoder();
     String hash = "$2a$10$X7TU2pKkR6sOCeotubuxjOsmYMCuPbLGfN1/yk2yRoUObAykZ.//K";
     Pattern pattern;
 
-    public SaikuPasswordEncoderTest() {
-        pattern = Pattern.compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
+    public NoReHashPasswordEncoderTest() {
+        String regex = "\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}";
+        pattern = Pattern.compile(regex);
     }
 
     @Test

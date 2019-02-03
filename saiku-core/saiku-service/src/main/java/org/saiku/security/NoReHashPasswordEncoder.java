@@ -1,19 +1,19 @@
-package org.saiku.database;
+package org.saiku.security;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.regex.Pattern;
 
-public class SaikuPasswordEncoder implements PasswordEncoder {
+public class NoReHashPasswordEncoder implements PasswordEncoder {
     private PasswordEncoder encoder;
     private Pattern pattern;
 
-    public SaikuPasswordEncoder() {
+    public NoReHashPasswordEncoder() {
         this(new BCryptPasswordEncoder(), "\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
     }
 
-    public SaikuPasswordEncoder(PasswordEncoder encoder, String pattern) {
+    public NoReHashPasswordEncoder(PasswordEncoder encoder, String pattern) {
         this.encoder = encoder;
         this.pattern = Pattern.compile(pattern);
     }
