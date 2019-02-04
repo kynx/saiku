@@ -101,7 +101,7 @@ public class UserService implements IUserManager, Serializable {
 
         uDAO.deleteUser(username);
 
-        iDatasourceManager.deleteFolder("homes/" + u.getUsername());
+        iDatasourceManager.deleteFolder("homes/home:" + u.getUsername());
 
     }
 
