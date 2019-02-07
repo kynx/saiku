@@ -4,11 +4,11 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import org.saiku.UserDAO;
 import org.saiku.database.dto.SaikuUser;
-import org.saiku.security.NoReHashPasswordEncoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class JdbcUserDAO
 
     private final Properties prop = new Properties();
     private final ClassLoader loader = Thread.currentThread().getContextClassLoader();
-    private PasswordEncoder passwordEncoder = new NoReHashPasswordEncoder();
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     private ServletContext servletContext;
