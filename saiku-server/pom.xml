@@ -213,7 +213,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<repository>buggtb/saikuce</repository>
+							<repository>kynx/saikuce</repository>
 							<tag>${project.version}</tag>
 						</configuration>
 					</plugin>
